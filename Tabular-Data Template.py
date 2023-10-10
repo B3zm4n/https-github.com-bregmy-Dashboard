@@ -5,7 +5,7 @@ import dash_core_components as dcc
 import pandas as pd
 from pyngrok import ngrok
 
-# Load your dataset (replace 'your_data.csv' with your actual data file)
+# Load dataset 
 data = pd.read_csv('Major_Safety_Events.csv')
 
 app = dash.Dash(__name__)
