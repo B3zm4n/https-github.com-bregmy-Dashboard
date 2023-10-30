@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safety Events Dashboard</title>
+</head>
+<body style="background-image: url('background.jpg'); background-size: cover; height: 100vh">
+    <div style="background-color: rgba(0, 0, 0, 0.7); padding: 20px">
+        <h1 style="text-align: center; font-size: 36px; color: #007BFF; font-family: Arial, sans-serif">Safety Events Dashboard</h1>
+        <p style="color: white; font-family: Arial, sans-serif">
+            Select a safety data metric from the dropdown menu, and this chart will show how that metric's average value has changed over the months. The data is grouped monthly, and a rolling average is applied to smooth out short-term variations, allowing you to spot trends and patterns more easily.
+            For example, you can choose metrics like:
+            - Transit Vehicle Rider Fatalities
+            - People Waiting or Leaving Fatalities
+            - Transit Vehicle Operator Fatalities
+            - and many more...
+            Explore the safety data and uncover insights by changing the selection.
+        </p>
+    </div>
+    <div style="background-color: #f2f2f2; padding: 20px">
+        <div style="width: 80%; margin: 0 auto">
+            <select id="data-selector" style="width: 80%; margin: 0 auto">
+                <option value="Transit Vehicle Rider Fatalities">Transit Vehicle Rider Fatalities</option>
+                <option value="People Waiting or Leaving Fatalities">People Waiting or Leaving Fatalities</option>
+                <option value="Transit Vehicle Operator Fatalities">Transit Vehicle Operator Fatalities</option>
+                <option value="Transit Employee Fatalities">Transit Employee Fatalities</option>
+                <option value="Other Worker Fatalities">Other Worker Fatalities</option>
+                <option value="Bicyclist Fatalities">Bicyclist Fatalities</option>
+                <option value="Pedestrian in Crosswalk Fatalities">Pedestrian in Crosswalk Fatalities</option>
+                <option value="Pedestrian Not in Crosswalk Fatalities">Pedestrian Not in Crosswalk Fatalities</option>
+                <option value="Pedestrian Crossing Tracks Fatalities">Pedestrian Crossing Tracks Fatalities</option>
+                <option value="Pedestrian Walking Along Tracks Fatalities">Pedestrian Walking Along Tracks Fatalities</option>
+                <option value="Occupant of Other Vehicle Fatalities">Occupant of Other Vehicle Fatalities</option>
+                <option value="Other Fatalities">Other Fatalities</option>
+                <option value="Suicide Fatalities">Suicide Fatalities</option>
+                <option value="Transit Vehicle Rider Injuries">Transit Vehicle Rider Injuries</option>
+                <option value="Transit Vehicle Rider Serious Injuries">Transit Vehicle Rider Serious Injuries</option>
+                <option value="People Waiting or Leaving Injuries">People Waiting or Leaving Injuries</option>
+                <option value="People Waiting or Leaving Serious Injuries">People Waiting or Leaving Serious Injuries</option>
+                <option value="Transit Vehicle Operator Injuries">Transit Vehicle Operator Injuries</option>
+                <option value="Transit Vehicle Operator Serious Injuries">Transit Vehicle Operator Serious Injuries</option>
+                <option value="Transit Employee Injuries">Transit Employee Injuries</option>
+                <option value="Transit Employee Serious Injuries">Transit Employee Serious Injuries</option>
+                <option value="Other Worker Injuries">Other Worker Injuries</option>
+                <option value="Other Worker Serious Injuries">Other Worker Serious Injuries</option>
+                <option value="Bicyclist Injuries">Bicyclist Injuries</option>
+                <option value="Bicyclist Serious Injuries">Bicyclist Serious Injuries</option>
+                <option value="Pedestrian in Crosswalk Injuries">Pedestrian in Crosswalk Injuries</option>
+                <option value="Pedestrian in Crosswalk Serious Injuries">Pedestrian in Crosswalk Serious Injuries</option>
+                <option value="Pedestrian Not in Crosswalk Injuries">Pedestrian Not in Crosswalk Injuries</option>
+                <option value="Pedestrian Not in Crosswalk Serious Injuries">Pedestrian Not in Crosswalk Serious Injuries</option>
+                <option value="Pedestrian Crossing Tracks Injuries">Pedestrian Crossing Tracks Injuries</option>
+                <option value="Pedestrian Crossing Tracks Serious Injuries">Pedestrian Crossing Tracks Serious Injuries</option>
+                <option value="Pedestrian Walking Along Tracks Injuries">Pedestrian Walking Along Tracks Injuries</option>
+                <option value="Pedestrian Walking Along Tracks Serious Injuries">Pedestrian Walking Along Tracks Serious Injuries</option>
+                <option value="Occupant of Other Vehicle Injuries">Occupant of Other Vehicle Injuries</option>
+                <option value="Occupant of Other Vehicle Serious Injuries">Occupant of Other Vehicle Serious Injuries</option>
+                <option value="Other Injuries">Other Injuries</option>
+                <option value="Other Serious Injuries">Other Serious Injuries</option>
+                <option value="Suicide Injuries">Suicide Injuries</option>
+                <option value="Suicide Serious Injuries">Suicide Serious Injuries</option>
+                <option value="Total Serious Injuries">Total Serious Injuries</option>
+            </select>
+        </div>
+        <div style="width: 80%; margin: 0 auto">
+            <div id="time-series-chart" style="width: 100%"></div>
+        </div>
+        <div style="width: 80%; margin: 0 auto">
+            <div id="heatmap-chart" style="width: 100%"></div>
+        </div>
+        <div style="width: 80%; margin: 0 auto">
+            <table id="fatality-table" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Total Fatalities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table data will be populated dynamically using Dash -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
