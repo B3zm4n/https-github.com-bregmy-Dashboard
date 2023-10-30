@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 import subprocess
 
-# Load your dataset (replace 'your_data.csv' with your actual data file)
+# Load dataset
 data = pd.read_csv('Major_Safety_Events.csv')
 
 app = dash.Dash(__name__)

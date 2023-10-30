@@ -6,7 +6,11 @@ import dash_table
 import pandas as pd
 import plotly.graph_objs as go
 
+<<<<<<< HEAD
 # Load dataset
+=======
+# Load dataset 
+>>>>>>> 14aaf034c7a20de257695458b3abc6093992952f
 data = pd.read_csv('Major_Safety_Events.csv')
 
 app = dash.Dash(__name__)
