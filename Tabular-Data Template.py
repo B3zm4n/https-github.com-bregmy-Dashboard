@@ -6,11 +6,7 @@ import dash_table
 import pandas as pd
 import plotly.graph_objs as go
 
-<<<<<<< HEAD
-# Load dataset
-=======
-# Load dataset 
->>>>>>> 14aaf034c7a20de257695458b3abc6093992952f
+
 data = pd.read_csv('Major_Safety_Events.csv')
 
 app = dash.Dash(__name__)
@@ -23,21 +19,6 @@ app.layout = html.Div(
             html.H1("Safety Events Dashboard",
                     style={'text-align': 'center', 'font-size': '36px', 'color': '#007BFF', 'font-family': 'Arial, sans-serif'}),
 
-
-             html.Div([
-            dcc.Markdown('''
-                Select a safety data metric from the dropdown menu, and this chart will show how that metric's average value has changed over the months. The data is grouped monthly, and a rolling average is applied to smooth out short-term variations, allowing you to spot trends and patterns more easily.
-
-                For example, you can choose metrics like:
-                - Transit Vehicle Rider Fatalities
-                - People Waiting or Leaving Fatalities
-                - Transit Vehicle Operator Fatalities
-                - and many more...
-
-                Explore the safety data and uncover insights by changing the selection.
-                ''',
-                style={'color': 'white', 'font-family': 'Arial, sans-serif'}),
-        ], style={'background-color': 'rgba(0, 0, 0, 0.7)', 'padding': '20px'}),
 
             # Dropdown for selecting data to visualize
             dcc.Dropdown(
@@ -93,24 +74,29 @@ app.layout = html.Div(
 
         html.Div([
             # Chart to display data
-            dcc.Graph(id='time-series-chart'),
+            dcc.Graph(id='time-series-chart', style={'height': '40vh'}),  # Adjust the chart's height here
         ], style={'width': '80%', 'margin': '0 auto'}),
         
         html.Div([
-            # Heatmap to display data
-            dcc.Graph(id='heatmap-chart'),
-        ], style={'width': '80%', 'margin': '0 auto'}),
-        
-        html.Div([
-            # Table to display total fatalities per year
-            dash_table.DataTable(id='fatality-table',
-                                 columns=[{'name': 'Year', 'id': 'Year'}, {'name': 'Total Fatalities', 'id': 'Total Fatalities'}],
-                                 style_table={'height': '400px', 'overflowY': 'auto'},
-                                 style_cell={'textAlign': 'left'},
-                                )
-        ], style={'width': '80%', 'margin': '0 auto'}),
+            html.Div([
+                # Heatmap to display data
+                dcc.Graph(id='heatmap-chart', style={'height': '40vh'}),  # Adjust the chart's height here
+            ], style={'width': '50%', 'display': 'inline-block'}),
+            
+            html.Div([
+                # Table to display total fatalities per year
+                dash_table.DataTable(
+                    id='fatality-table',
+                    columns=[{'name': 'Year', 'id': 'Year'}, {'name': 'Total Fatalities', 'id': 'Total Fatalities'}],
+                    style_table={'height': '40vh', 'overflowY': 'auto'},  # Adjust the table's height here
+                    style_data={'whiteSpace': 'normal', 'height': 'auto'},
+                    style_cell={'textAlign': 'left'},
+                ),
+            ], style={'width': '50%', 'display': 'inline-block'}),
+        ], style={'width': '80%', 'margin': '0 auto', 'display': 'flex', 'flex-direction': 'row'}),
     ]
 )
+
 
 @app.callback(
     [Output('time-series-chart', 'figure'),
