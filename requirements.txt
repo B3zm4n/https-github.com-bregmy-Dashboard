@@ -1,0 +1,7 @@
+dash==2.13.0
+dash_core_components==2.0.0
+dash_html_components==2.0.0
+dash_table==5.0.0
+pandas
+plotly==5.17.0
+pyngrok==7.0.0
