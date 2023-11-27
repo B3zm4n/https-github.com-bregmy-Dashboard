@@ -1,0 +1,39 @@
+---
+- name: Update and upgrade
+  apt:
+    upgrade: yes
+    update_cache: yes
+- name: Get Dependencies
+  ansible.builtin.copy:
+    src: ../../../requirements.txt
+    dest: /home/ubuntu/
+- name: Get Code
+  ansible.builtin.copy:
+    src: "../../../Tabular-Data Template.py"
+    dest: /home/ubuntu/
+- name: Get Code
+  ansible.builtin.copy:
+    src: "../../../Major_Safety_Events.csv"
+    dest: /home/ubuntu/
+
+- name: Install Python
+  raw: apt install -y python3
+- name: Install PIP
+  ansible.builtin.apt:
+      name: python3-pip
+- name: Install Python packages from requirements.txt
+  ansible.builtin.pip:
+    requirements: "/home/ubuntu/requirements.txt"
+    executable: pip3
+- name: Run Python file
+  ansible.builtin.command: python3 "/home/ubuntu/Tabular-Data Template.py" &
+  async: 200
+  poll: 0
+#    dirs: yes
+#    mode: pull
+#    rsync_opts:
+#        - "--exclude=backup"
+#        - "-O"
+#        - "--exclude=target"
+#        - "--exclude=internal/client/.ods"
+#        - "--exclude=internal/exchange/.ods"
