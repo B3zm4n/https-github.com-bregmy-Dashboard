@@ -9,11 +9,15 @@
     dest: /home/ubuntu/
 - name: Get Code
   ansible.builtin.copy:
-    src: "../../../Tabular-Data Template.py"
+    src: "../../../pollution.py"
     dest: /home/ubuntu/
-- name: Get Code
+- name: Get Data
   ansible.builtin.copy:
-    src: "../../../Major_Safety_Events.csv"
+    src: "../../../pollution_data.csv"
+    dest: /home/ubuntu/
+- name: Get Metadata
+  ansible.builtin.copy:
+    src: "../../../us-states.json"
     dest: /home/ubuntu/
 
 - name: Install Python
@@ -26,7 +30,7 @@
     requirements: "/home/ubuntu/requirements.txt"
     executable: pip3
 - name: Run Python file
-  ansible.builtin.command: python3 "/home/ubuntu/Tabular-Data Template.py" &
+  ansible.builtin.command: python3 "/home/ubuntu/pollution.py" &
   async: 200
   poll: 0
 #    dirs: yes
